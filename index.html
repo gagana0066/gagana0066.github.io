@@ -7,19 +7,22 @@
   <title>Gagana Vivekananda | Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #111111;
-      --surface: #1a1a1a;
-      --grid: rgba(255, 255, 255, 0.06);
+      /* Warm brown palette based on your reference strip */
+      --bg: #14110f;
+      --surface: #1c130f;
+      --grid: rgba(255, 255, 255, 0.04);
       --text: #ffffff;
       --muted: #c8c8c8;
-      --accent: #f0b429;
-      --purple: #7b5ea7;
-      --cream: #f0e6c8;
+      --accent: #cc9767;   /* main CTA */
+      --accent-soft: #ae6a4e;
+      --cream: #f1f4dd;
+      --tan: #c7ad7f;
+      --tan-deep: #a87a4a;
       --orange: #f97316;
-      --border: rgba(240, 230, 200, 0.24);
+      --border: rgba(241, 244, 221, 0.8);
       --shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
       --max: 1160px;
     }
@@ -35,13 +38,13 @@
     body {
       margin: 0;
       color: var(--text);
-      font-family: "Inter", sans-serif;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
       background-image:
-        radial-gradient(circle at center, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(var(--grid) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-      background-size: 24px 24px, 64px 64px, 64px 64px;
+      background-size: 18px 18px, 64px 64px, 64px 64px;
       background-position: center;
     }
 
@@ -126,7 +129,7 @@
     }
 
     .hero {
-      min-height: 92vh;
+      min-height: 86vh;
       display: grid;
       grid-template-columns: 1.05fr 1fr;
       align-items: center;
@@ -135,8 +138,8 @@
     }
 
     .eyebrow {
-      margin: 0 0 14px;
-      color: #b8a6df;
+      margin: 0 0 10px;
+      color: var(--tan);
       letter-spacing: 0.28em;
       text-transform: uppercase;
       font-size: 0.83rem;
@@ -145,10 +148,10 @@
 
     .hero h1 {
       margin: 0;
-      font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(3.6rem, 9vw, 8.4rem);
-      letter-spacing: 0.04em;
-      line-height: 0.9;
+      font-family: "Baskerville", "Libre Baskerville", serif;
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      letter-spacing: 0.08em;
+      line-height: 0.95;
       text-transform: uppercase;
       color: var(--text);
     }
@@ -157,7 +160,7 @@
       color: var(--muted);
       max-width: 620px;
       line-height: 1.7;
-      font-size: 1.09rem;
+      font-size: 1.02rem;
       margin-top: 18px;
     }
 
@@ -182,13 +185,13 @@
 
     .btn-primary {
       background: var(--accent);
-      color: #17120a;
+      color: #1a120a;
       border: 1px solid transparent;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      background: #f7c64e;
+      background: #dca474;
     }
 
     .btn-ghost {
@@ -210,8 +213,8 @@
 
     .star-stack {
       position: relative;
-      width: 450px;
-      height: 440px;
+      width: 430px;
+      height: 360px;
     }
 
     .card-petal,
@@ -219,14 +222,15 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      border-radius: 24px;
-      border: 1px solid var(--border);
+      width: 200px;
+      height: 200px;
+      border-radius: 26px;
+      border: 2px solid var(--border);
       box-shadow: var(--shadow);
+      clip-path: polygon(50% 0%, 61% 34%, 98% 35%, 69% 57%, 79% 91%, 50% 72%, 21% 91%, 31% 57%, 2% 35%, 39% 34%);
     }
 
     .card-petal {
-      width: 220px;
-      height: 300px;
       opacity: 0.86;
       cursor: pointer;
       transition: transform 0.34s ease, opacity 0.24s ease, filter 0.24s ease, border-color 0.24s ease;
@@ -242,35 +246,35 @@
     }
 
     .card-main {
-      width: 306px;
-      height: 390px;
+      width: 235px;
+      height: 235px;
       z-index: 20;
-      background: var(--purple);
+      background: var(--accent-soft);
       transform: translate(-50%, -50%) rotate(-2deg);
-      padding: 28px;
+      padding: 32px 32px 24px;
       display: flex;
       flex-direction: column;
     }
 
     .card-main small {
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       font-weight: 700;
-      color: rgba(21, 12, 35, 0.62);
+      color: rgba(34, 19, 6, 0.65);
     }
 
     .card-main h3 {
-      margin: 22px 0 0;
-      font-size: 3rem;
-      line-height: 0.95;
+      margin: 20px 0 0;
+      font-size: 2.2rem;
+      line-height: 1;
       font-weight: 800;
       color: #fff;
     }
 
     .card-main p {
       margin-top: 16px;
-      font-size: 1.1rem;
-      line-height: 1.55;
+      font-size: 0.98rem;
+      line-height: 1.6;
       color: rgba(255, 255, 255, 0.9);
     }
 
@@ -302,24 +306,24 @@
 
     .section-title {
       margin: 0;
-      font-family: "Bebas Neue", sans-serif;
-      letter-spacing: 0.06em;
+      font-family: "Baskerville", "Libre Baskerville", serif;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-size: clamp(2.1rem, 5vw, 3.3rem);
+      font-size: clamp(1.9rem, 4.6vw, 3rem);
     }
 
     .glass {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(240, 230, 200, 0.14);
+      background: rgba(26, 19, 13, 0.8);
+      border: 1px solid rgba(240, 230, 200, 0.18);
       backdrop-filter: blur(8px);
       border-radius: 20px;
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
     }
 
     .about-grid {
       margin-top: 20px;
       display: grid;
-      gap: 18px;
+      gap: 16px;
       grid-template-columns: 1.2fr 1fr;
     }
 
@@ -357,7 +361,7 @@
     .project-grid {
       margin-top: 24px;
       display: grid;
-      gap: 18px;
+      gap: 16px;
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -402,15 +406,15 @@
       padding: 10px 14px;
       border-radius: 999px;
       border: 1px solid rgba(123, 94, 167, 0.45);
-      background: rgba(123, 94, 167, 0.08);
-      color: #e7def8;
+      background: rgba(200, 154, 104, 0.12);
+      color: #f5eee0;
       font-size: 0.92rem;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .skill-pill:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 18px rgba(123, 94, 167, 0.2);
+      box-shadow: 0 10px 18px rgba(168, 122, 74, 0.3);
     }
 
     .contact-grid {
@@ -445,7 +449,7 @@
     }
 
     .footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
       padding: 24px 0 30px;
       color: #9f9f9f;
       font-size: 0.9rem;
@@ -476,16 +480,6 @@
         order: -1;
       }
 
-      .star-stack {
-        width: 390px;
-        height: 390px;
-      }
-
-      .card-main {
-        width: 280px;
-        height: 358px;
-      }
-
       .about-grid,
       .project-grid,
       .contact-grid {
@@ -503,27 +497,8 @@
       }
 
       .star-stack {
-        width: 320px;
-        height: 360px;
-      }
-
-      .card-petal {
-        width: 160px;
-        height: 220px;
-      }
-
-      .card-main {
-        width: 244px;
-        height: 310px;
-        padding: 20px;
-      }
-
-      .card-main h3 {
-        font-size: 2.3rem;
-      }
-
-      .card-main p {
-        font-size: 1rem;
+        width: 290px;
+        height: 290px;
       }
     }
   </style>
@@ -567,11 +542,12 @@
 
       <div class="visual-wrap">
         <div class="star-stack">
-          <div class="card-petal is-active" data-petal style="--x: 0px; --y: -145px; --r: -4deg; background: #6f5597;"></div>
-          <div class="card-petal" data-petal style="--x: 138px; --y: -44px; --r: 8deg; background: #5e6d79;"></div>
-          <div class="card-petal" data-petal style="--x: 84px; --y: 121px; --r: 10deg; background: #7e674f;"></div>
-          <div class="card-petal" data-petal style="--x: -84px; --y: 121px; --r: -10deg; background: #585857;"></div>
-          <div class="card-petal" data-petal style="--x: -138px; --y: -44px; --r: -8deg; background: #685b63;"></div>
+          <!-- five star points, stacked in a star shape -->
+          <div class="card-petal is-active" data-petal style="--x: 0px; --y: -115px; --r: -4deg; background: #ae6a4e;"></div>
+          <div class="card-petal" data-petal style="--x: 118px; --y: -30px; --r: 8deg; background: #cc9767;"></div>
+          <div class="card-petal" data-petal style="--x: 72px; --y: 100px; --r: 10deg; background: #c7ad7f;"></div>
+          <div class="card-petal" data-petal style="--x: -72px; --y: 100px; --r: -10deg; background: #a87a4a;"></div>
+          <div class="card-petal" data-petal style="--x: -118px; --y: -30px; --r: -8deg; background: #8b4a1e;"></div>
 
           <article class="card-main">
             <small id="cardTag">System Card 01</small>
