@@ -38,13 +38,17 @@
   </script>
   <style>
     :root {
-      --bg: #0a0a0a;
-      --grid: rgba(255, 255, 255, 0.055);
-      --card: #121215;
-      --muted: #c9c5ba;
-      --accent: #f7bf2a;
-      --violet: #8767b8;
-      --cyan: #2f8cb6;
+      /* Design tokens: single matte visual system */
+      --bg: #0b0b0c;
+      --surface: #141416;
+      --surface-soft: #1a1a1d;
+      --grid: rgba(255, 255, 255, 0.045);
+      --text: #f3f0e8;
+      --text-muted: #b8b3a7;
+      --border: #2a2a2f;
+      --accent: #e7b94c;
+      --label: #9e90b8;
+      --shadow: 0 18px 34px rgba(0, 0, 0, 0.35);
     }
 
     .stage-grid {
@@ -56,31 +60,71 @@
       background-position: center center;
     }
 
-    .spotlight {
+    .star-stack {
+      position: relative;
+      width: 420px;
+      height: 420px;
+      margin: 0 auto;
+    }
+
+    .star-card {
       position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(520px circle at var(--x, 20%) var(--y, 20%), rgba(135, 103, 184, 0.22), transparent 42%);
-      transition: background 120ms linear;
+      left: 50%;
+      top: 50%;
+      width: 230px;
+      height: 290px;
+      border-radius: 22px;
+      border: 1px solid rgba(239, 230, 213, 0.36);
+      transform: translate(-50%, -50%) translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0deg));
+      transition: transform 340ms ease, opacity 280ms ease, filter 280ms ease, border-color 280ms ease;
+      box-shadow: var(--shadow);
+      padding: 1.25rem;
     }
 
-    .deck {
-      perspective: 1600px;
+    .star-card p {
+      color: rgba(243, 240, 232, 0.84);
     }
 
-    .deck-card {
-      transform-style: preserve-3d;
-      transition: transform 280ms ease, opacity 280ms ease, filter 280ms ease;
-      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+    .star-petal {
+      z-index: 10;
+      filter: saturate(0.85) brightness(0.92);
+      opacity: 0.8;
+    }
+
+    .star-petal.active {
+      filter: none;
+      opacity: 1;
+      border-color: rgba(231, 185, 76, 0.75);
+      transform: translate(-50%, -50%) translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0deg)) scale(1.04);
+    }
+
+    .star-main {
+      z-index: 20;
+      width: 270px;
+      height: 340px;
+      background: #8767b8;
+      border: 1px solid rgba(239, 230, 213, 0.6);
+      transform: translate(-50%, -50%) rotate(-2deg);
+    }
+
+    .soft-btn {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.03);
+      color: #ded8cb;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .soft-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .module-card {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
     }
   </style>
 </head>
 <body class="stage-grid text-[#f3efe6] scroll-smooth antialiased">
-  <div class="spotlight" id="spotlight"></div>
   <header class="sticky top-0 z-50 border-b border-white/10 bg-black/75 backdrop-blur">
     <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
       <a href="#" class="text-sm font-bold tracking-[0.3em] text-[#f1ebdc]">GV</a>
@@ -95,7 +139,7 @@
   </header>
 
   <main>
-    <section class="mx-auto grid min-h-[88vh] max-w-6xl items-center gap-10 px-6 py-16 lg:grid-cols-2">
+    <section class="mx-auto grid min-h-[88vh] max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-2">
       <div>
         <p class="text-sm uppercase tracking-[0.25em] text-[#aa98d8]">Master resilient backend systems</p>
         <h1 class="mt-4 text-5xl font-black leading-tight text-[#f6f2e8] md:text-7xl">Gagana Vivekananda</h1>
@@ -108,25 +152,35 @@
         </div>
       </div>
 
-      <div class="deck relative mx-auto h-[420px] w-[310px]">
-        <article class="deck-card absolute inset-0 rounded-2xl border border-[#efe6d5]/70 bg-[#8767b8] p-7" data-deck-card>
-          <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#2f253f]/70">System Card 01</p>
-          <h3 class="mt-12 text-3xl font-black text-white">Will It Scale?</h3>
-          <p class="mt-3 text-white/90">Pipeline redesign and workload isolation for high-throughput systems.</p>
-        </article>
-        <article class="deck-card absolute inset-0 rounded-2xl border border-[#efe6d5]/70 bg-[#2f8cb6] p-7" data-deck-card>
-          <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#0d3344]/70">System Card 02</p>
-          <h3 class="mt-12 text-3xl font-black text-white">Will It Secure?</h3>
-          <p class="mt-3 text-white/90">Centralized RBAC and JWT patterns across 150+ endpoints.</p>
-        </article>
-        <article class="deck-card absolute inset-0 rounded-2xl border border-[#efe6d5]/70 bg-[#c78221] p-7" data-deck-card>
-          <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#4b2f10]/70">System Card 03</p>
-          <h3 class="mt-12 text-3xl font-black text-white">Will It Ship?</h3>
-          <p class="mt-3 text-white/90">CI/CD to Azure and production delivery across multiple apps.</p>
-        </article>
-        <div class="absolute -bottom-16 left-1/2 flex -translate-x-1/2 gap-3">
-          <button id="prevCard" class="rounded-md border border-white/20 px-4 py-2 text-sm text-[#e3ddd0] hover:bg-white/10">Prev</button>
-          <button id="nextCard" class="rounded-md border border-white/20 px-4 py-2 text-sm text-[#e3ddd0] hover:bg-white/10">Next</button>
+      <div>
+        <div class="star-stack" id="starStack">
+          <article class="star-card star-petal active bg-[#7f63ae]" data-petal data-index="0" style="--x: 0px; --y: -146px; --r: -4deg;">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/55">System 01</p>
+          </article>
+          <article class="star-card star-petal bg-[#596975]" data-petal data-index="1" style="--x: 138px; --y: -42px; --r: 7deg;">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/55">System 02</p>
+          </article>
+          <article class="star-card star-petal bg-[#7a634d]" data-petal data-index="2" style="--x: 86px; --y: 122px; --r: 11deg;">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/55">System 03</p>
+          </article>
+          <article class="star-card star-petal bg-[#575752]" data-petal data-index="3" style="--x: -86px; --y: 122px; --r: -9deg;">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/55">System 04</p>
+          </article>
+          <article class="star-card star-petal bg-[#6e5f67]" data-petal data-index="4" style="--x: -138px; --y: -42px; --r: -13deg;">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/55">System 05</p>
+          </article>
+
+          <article class="star-card star-main p-8" id="starMain">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/60" id="mainTag">System Card 01</p>
+            <h3 class="mt-12 text-4xl font-black text-white" id="mainTitle">Will It Scale?</h3>
+            <p class="mt-4 text-[1.35rem] leading-relaxed text-white/92" id="mainBody">
+              Pipeline redesign and workload isolation for high-throughput systems.
+            </p>
+          </article>
+        </div>
+        <div class="mt-4 flex justify-center gap-3">
+          <button id="prevCard" class="soft-btn rounded-md px-4 py-2 text-sm">Prev</button>
+          <button id="nextCard" class="soft-btn rounded-md px-4 py-2 text-sm">Next</button>
         </div>
       </div>
     </section>
@@ -152,7 +206,7 @@
       </div>
     </section>
 
-    <section id="modules" class="border-y border-white/10 bg-black/30 py-20">
+    <section id="modules" class="border-y border-white/10 bg-black/25 py-20">
       <div class="mx-auto max-w-6xl px-6">
         <h2 class="text-4xl font-black">Interactive Modules</h2>
         <p class="mt-3 text-slate-300">Click through engineering domains to reveal real outcomes.</p>
@@ -162,7 +216,7 @@
             <button class="domain-btn w-full rounded-xl border border-white/15 bg-white/5 p-4 text-left hover:bg-white/10" data-domain="ai">AI Systems</button>
             <button class="domain-btn w-full rounded-xl border border-white/15 bg-white/5 p-4 text-left hover:bg-white/10" data-domain="cloud">Cloud & DevOps</button>
           </div>
-          <article class="rounded-2xl border border-cyan-300/30 bg-cyan-400/5 p-7">
+          <article class="rounded-2xl border border-white/15 bg-white/[0.02] p-7">
             <h3 id="domainTitle" class="text-2xl font-black">Backend Platform</h3>
             <p id="domainBody" class="mt-4 text-slate-200">Built centralized authorization service in Java + Spring Boot and removed hardcoded permission logic across distributed services.</p>
             <div class="mt-6 rounded-xl border border-white/10 bg-black/30 p-4">
@@ -172,7 +226,7 @@
                 <button class="ans rounded border border-white/20 px-3 py-2 text-sm hover:bg-white/10" data-ok="0">Inside each endpoint</button>
                 <button class="ans rounded border border-white/20 px-3 py-2 text-sm hover:bg-white/10" data-ok="1">Centralized auth service</button>
               </div>
-              <p id="ansText" class="mt-3 text-sm text-slate-300">Choose one.</p>
+              <p id="ansText" class="mt-3 text-sm text-[#b8b3a7]">Choose one.</p>
             </div>
           </article>
         </div>
@@ -196,11 +250,11 @@
     </section>
 
     <section id="contact" class="mx-auto max-w-6xl px-6 pb-20">
-      <div class="rounded-2xl border border-white/10 bg-gradient-to-r from-violet-500/20 to-cyan-400/20 p-10 text-center">
+      <div class="rounded-2xl border border-white/10 bg-[#151518] p-10 text-center">
         <h2 class="text-4xl font-black">Open To Opportunities</h2>
         <p class="mx-auto mt-4 max-w-2xl text-slate-200">Backend, distributed systems, platform engineering, and AI infrastructure roles.</p>
         <div class="mt-6 flex flex-wrap justify-center gap-4">
-          <a href="mailto:gaganavivekananda3@gmail.com" class="rounded-full bg-amber-400 px-6 py-3 font-semibold text-black">Email Me</a>
+          <a href="mailto:gaganavivekananda3@gmail.com" class="rounded-full bg-[#e7b94c] px-6 py-3 font-semibold text-black">Email Me</a>
           <a href="resume.pdf" target="_blank" class="rounded-full border border-white/20 px-6 py-3 font-semibold hover:bg-white/10">Download Resume</a>
         </div>
       </div>
@@ -208,45 +262,62 @@
   </main>
 
   <script>
-    const spotlight = document.getElementById("spotlight");
-    window.addEventListener("mousemove", (e) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      spotlight.style.setProperty("--x", `${x}%`);
-      spotlight.style.setProperty("--y", `${y}%`);
-    });
+    const systemCards = [
+      {
+        tag: "System Card 01",
+        title: "Will It Scale?",
+        body: "Pipeline redesign and workload isolation for high-throughput systems."
+      },
+      {
+        tag: "System Card 02",
+        title: "Will It Secure?",
+        body: "Centralized RBAC and JWT patterns across 150+ endpoints."
+      },
+      {
+        tag: "System Card 03",
+        title: "Will It Perform?",
+        body: "Indexed PostgreSQL design and caching reduced metadata latency by 35%."
+      },
+      {
+        tag: "System Card 04",
+        title: "Will It Observe?",
+        body: "Grafana dashboards with SLIs/SLOs improved reliability detection by 60%."
+      },
+      {
+        tag: "System Card 05",
+        title: "Will It Ship?",
+        body: "CI/CD automation with GitHub Actions enabled faster, repeatable deployments."
+      }
+    ];
 
-    const cards = [...document.querySelectorAll("[data-deck-card]")];
+    const petals = [...document.querySelectorAll("[data-petal]")];
+    const mainTag = document.getElementById("mainTag");
+    const mainTitle = document.getElementById("mainTitle");
+    const mainBody = document.getElementById("mainBody");
     let active = 0;
-    const renderDeck = () => {
-      cards.forEach((card, i) => {
-        const offset = (i - active + cards.length) % cards.length;
-        if (offset === 0) {
-          card.style.transform = "translateX(0) translateY(0) rotate(-2deg) scale(1)";
-          card.style.opacity = "1";
-          card.style.zIndex = "30";
-          card.style.filter = "none";
-        } else if (offset === 1) {
-          card.style.transform = "translateX(16px) translateY(10px) rotate(2deg) scale(0.96)";
-          card.style.opacity = "0.9";
-          card.style.zIndex = "20";
-          card.style.filter = "brightness(0.9)";
-        } else {
-          card.style.transform = "translateX(28px) translateY(18px) rotate(5deg) scale(0.92)";
-          card.style.opacity = "0.7";
-          card.style.zIndex = "10";
-          card.style.filter = "brightness(0.8)";
-        }
+    const renderStar = () => {
+      const current = systemCards[active];
+      mainTag.textContent = current.tag;
+      mainTitle.textContent = current.title;
+      mainBody.textContent = current.body;
+      petals.forEach((petal, idx) => {
+        petal.classList.toggle("active", idx === active);
       });
     };
-    renderDeck();
+    renderStar();
     document.getElementById("nextCard").addEventListener("click", () => {
-      active = (active + 1) % cards.length;
-      renderDeck();
+      active = (active + 1) % systemCards.length;
+      renderStar();
     });
     document.getElementById("prevCard").addEventListener("click", () => {
-      active = (active - 1 + cards.length) % cards.length;
-      renderDeck();
+      active = (active - 1 + systemCards.length) % systemCards.length;
+      renderStar();
+    });
+    petals.forEach((petal, idx) => {
+      petal.addEventListener("click", () => {
+        active = idx;
+        renderStar();
+      });
     });
 
     const domainData = {
