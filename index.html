@@ -3,373 +3,745 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive portfolio of Gagana Vivekananda, Software Engineer focused on distributed systems, AI platforms, and cloud-native backend architecture.">
-  <title>Gagana Vivekananda | Interactive Engineering Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: "#8b5cf6",
-            neon: "#22d3ee"
-          },
-          boxShadow: {
-            glow: "0 0 45px rgba(34, 211, 238, 0.25)",
-            pulse: "0 0 35px rgba(139, 92, 246, 0.35)"
-          },
-          keyframes: {
-            floaty: {
-              "0%, 100%": { transform: "translateY(0px)" },
-              "50%": { transform: "translateY(-10px)" }
-            },
-            pulseSoft: {
-              "0%, 100%": { opacity: "0.45" },
-              "50%": { opacity: "0.9" }
-            }
-          },
-          animation: {
-            floaty: "floaty 6s ease-in-out infinite",
-            pulseSoft: "pulseSoft 3s ease-in-out infinite"
-          }
-        }
-      }
-    };
-  </script>
+  <meta name="description" content="Gagana Vivekananda - Software Engineer building scalable backend, distributed systems, and AI-powered platforms.">
+  <title>Gagana Vivekananda | Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Design tokens: single matte visual system */
-      --bg: #0b0b0c;
-      --surface: #141416;
-      --surface-soft: #1a1a1d;
-      --grid: rgba(255, 255, 255, 0.045);
-      --text: #f3f0e8;
-      --text-muted: #b8b3a7;
-      --border: #2a2a2f;
-      --accent: #e7b94c;
-      --label: #9e90b8;
-      --shadow: 0 18px 34px rgba(0, 0, 0, 0.35);
+      --bg: #111111;
+      --surface: #1a1a1a;
+      --grid: rgba(255, 255, 255, 0.06);
+      --text: #ffffff;
+      --muted: #c8c8c8;
+      --accent: #f0b429;
+      --purple: #7b5ea7;
+      --cream: #f0e6c8;
+      --orange: #f97316;
+      --border: rgba(240, 230, 200, 0.24);
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
+      --max: 1160px;
     }
 
-    .stage-grid {
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Inter", sans-serif;
       background-color: var(--bg);
       background-image:
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
         linear-gradient(var(--grid) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-      background-size: 32px 32px;
-      background-position: center center;
+      background-size: 24px 24px, 64px 64px, 64px 64px;
+      background-position: center;
+    }
+
+    .container {
+      width: min(var(--max), 92vw);
+      margin: 0 auto;
+    }
+
+    /* Sticky nav with blur */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(17, 17, 17, 0.75);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .logo {
+      color: var(--cream);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      font-size: 0.85rem;
+    }
+
+    .desktop-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .desktop-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .desktop-links a:hover {
+      color: var(--text);
+    }
+
+    .resume-link {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 8px 14px;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+
+    .mobile-links {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0 0 14px;
+    }
+
+    .mobile-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .mobile-links.open {
+      display: flex;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      align-items: center;
+      gap: 44px;
+      padding: 48px 0 56px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: #b8a6df;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-size: 0.83rem;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(3.6rem, 9vw, 8.4rem);
+      letter-spacing: 0.04em;
+      line-height: 0.9;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 620px;
+      line-height: 1.7;
+      font-size: 1.09rem;
+      margin-top: 18px;
+    }
+
+    .cta-row {
+      margin-top: 26px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 12px 22px;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #17120a;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #f7c64e;
+    }
+
+    .btn-ghost {
+      color: var(--cream);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Star stack, but still visually stacked like a deck */
+    .visual-wrap {
+      display: grid;
+      justify-items: center;
     }
 
     .star-stack {
       position: relative;
-      width: 420px;
-      height: 420px;
-      margin: 0 auto;
+      width: 450px;
+      height: 440px;
     }
 
-    .star-card {
+    .card-petal,
+    .card-main {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 230px;
-      height: 290px;
-      border-radius: 22px;
-      border: 1px solid rgba(239, 230, 213, 0.36);
-      transform: translate(-50%, -50%) translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0deg));
-      transition: transform 340ms ease, opacity 280ms ease, filter 280ms ease, border-color 280ms ease;
+      border-radius: 24px;
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
-      padding: 1.25rem;
     }
 
-    .star-card p {
-      color: rgba(243, 240, 232, 0.84);
+    .card-petal {
+      width: 220px;
+      height: 300px;
+      opacity: 0.86;
+      cursor: pointer;
+      transition: transform 0.34s ease, opacity 0.24s ease, filter 0.24s ease, border-color 0.24s ease;
+      transform: translate(-50%, -50%) translate(var(--x), var(--y)) rotate(var(--r));
+      z-index: 5;
     }
 
-    .star-petal {
-      z-index: 10;
-      filter: saturate(0.85) brightness(0.92);
-      opacity: 0.8;
-    }
-
-    .star-petal.active {
-      filter: none;
+    .card-petal.is-active {
       opacity: 1;
-      border-color: rgba(231, 185, 76, 0.75);
-      transform: translate(-50%, -50%) translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0deg)) scale(1.04);
+      filter: brightness(1.06);
+      border-color: rgba(240, 180, 41, 0.65);
+      transform: translate(-50%, -50%) translate(var(--x), var(--y)) rotate(var(--r)) scale(1.04);
     }
 
-    .star-main {
+    .card-main {
+      width: 306px;
+      height: 390px;
       z-index: 20;
-      width: 270px;
-      height: 340px;
-      background: #8767b8;
-      border: 1px solid rgba(239, 230, 213, 0.6);
+      background: var(--purple);
       transform: translate(-50%, -50%) rotate(-2deg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .soft-btn {
+    .card-main small {
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(21, 12, 35, 0.62);
+    }
+
+    .card-main h3 {
+      margin: 22px 0 0;
+      font-size: 3rem;
+      line-height: 0.95;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .card-main p {
+      margin-top: 16px;
+      font-size: 1.1rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .card-controls {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .card-controls button {
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--muted);
       background: rgba(255, 255, 255, 0.03);
-      color: #ded8cb;
-      transition: transform 180ms ease, background 180ms ease;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
 
-    .soft-btn:hover {
-      transform: translateY(-1px);
+    .card-controls button:hover {
+      color: #fff;
       background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-1px);
     }
 
-    .module-card {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+    section {
+      padding: 88px 0;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: clamp(2.1rem, 5vw, 3.3rem);
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(240, 230, 200, 0.14);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+    }
+
+    .about-grid {
+      margin-top: 20px;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1.2fr 1fr;
+    }
+
+    .about-card {
+      padding: 28px;
+    }
+
+    .about-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .metric-grid {
+      margin-top: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .metric-item {
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .metric-item strong {
+      color: var(--text);
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .project-grid {
+      margin-top: 24px;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-card {
+      padding: 24px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(240, 180, 41, 0.46);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .project-card .tag {
+      color: var(--orange);
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .project-card h3 {
+      margin: 10px 0 8px;
+      font-size: 1.4rem;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .skills-wrap {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(123, 94, 167, 0.45);
+      background: rgba(123, 94, 167, 0.08);
+      color: #e7def8;
+      font-size: 0.92rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .skill-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(123, 94, 167, 0.2);
+    }
+
+    .contact-grid {
+      margin-top: 22px;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-card {
+      padding: 26px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .contact-links a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+      width: fit-content;
+      transition: color 0.2s ease;
+      padding-bottom: 2px;
+    }
+
+    .contact-links a:hover {
+      color: var(--text);
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 24px 0 30px;
+      color: #9f9f9f;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* Fade-in animation on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        min-height: auto;
+        padding-top: 34px;
+      }
+
+      .visual-wrap {
+        order: -1;
+      }
+
+      .star-stack {
+        width: 390px;
+        height: 390px;
+      }
+
+      .card-main {
+        width: 280px;
+        height: 358px;
+      }
+
+      .about-grid,
+      .project-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .desktop-links {
+        display: none;
+      }
+
+      .menu-btn {
+        display: inline-flex;
+      }
+
+      .star-stack {
+        width: 320px;
+        height: 360px;
+      }
+
+      .card-petal {
+        width: 160px;
+        height: 220px;
+      }
+
+      .card-main {
+        width: 244px;
+        height: 310px;
+        padding: 20px;
+      }
+
+      .card-main h3 {
+        font-size: 2.3rem;
+      }
+
+      .card-main p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
-<body class="stage-grid text-[#f3efe6] scroll-smooth antialiased">
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/75 backdrop-blur">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <a href="#" class="text-sm font-bold tracking-[0.3em] text-[#f1ebdc]">GV</a>
-      <div class="hidden items-center gap-6 text-sm text-[#d2cfc6] md:flex">
-        <a href="#experience" class="hover:text-[#fffdf8]">Experience</a>
-        <a href="#modules" class="hover:text-[#fffdf8]">Interactive Modules</a>
-        <a href="#projects" class="hover:text-[#fffdf8]">Projects</a>
-        <a href="#contact" class="hover:text-[#fffdf8]">Contact</a>
-        <a href="resume.pdf" target="_blank" class="rounded-lg border border-white/20 px-4 py-2 hover:bg-white/10">Resume</a>
-      </div>
-    </nav>
+<body>
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#">GV</a>
+      <nav class="desktop-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="resume-link" href="resume.pdf" target="_blank">Resume</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">Menu</button>
+    </div>
+    <div class="container mobile-links" id="mobileLinks">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="resume.pdf" target="_blank">Resume</a>
+    </div>
   </header>
 
   <main>
-    <section class="mx-auto grid min-h-[88vh] max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-2">
+    <section class="container hero reveal">
       <div>
-        <p class="text-sm uppercase tracking-[0.25em] text-[#aa98d8]">Master resilient backend systems</p>
-        <h1 class="mt-4 text-5xl font-black leading-tight text-[#f6f2e8] md:text-7xl">Gagana Vivekananda</h1>
-        <p class="mt-6 max-w-xl text-lg leading-relaxed text-[#d8d3c8]">
-          I build cloud-native systems with measurable impact: <span class="font-semibold text-[#f7f3ea]">$1.5M+ revenue impact</span>, <span class="font-semibold text-[#f7f3ea]">2 days to 2 hours pipeline optimization</span>, and secure APIs at scale.
+        <p class="eyebrow">Software Engineer · Distributed Systems</p>
+        <h1>Gagana Vivekananda</h1>
+        <p>
+          I build scalable backend and cloud-native platforms with measurable outcomes:
+          $1.5M+ business impact, 2 days to 2 hours pipeline optimization, and secure APIs across large distributed systems.
         </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="resume.pdf" target="_blank" class="rounded-full bg-[#f7bf2a] px-6 py-3 font-bold text-[#1a160c] transition hover:scale-105 hover:bg-[#ffcd45]">Get Resume</a>
-          <a href="#modules" class="rounded-full border border-white/25 bg-white/5 px-6 py-3 font-semibold text-[#e9e3d7] hover:bg-white/12">Start Interactive Tour</a>
+        <div class="cta-row">
+          <a class="btn-primary" href="resume.pdf" target="_blank">Download Resume</a>
+          <a class="btn-ghost" href="#projects">View Projects</a>
         </div>
       </div>
 
-      <div>
-        <div class="star-stack" id="starStack">
-          <article class="star-card star-petal active bg-[#7f63ae]" data-petal data-index="0" style="--x: 0px; --y: -146px; --r: -4deg;">
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/55">System 01</p>
-          </article>
-          <article class="star-card star-petal bg-[#596975]" data-petal data-index="1" style="--x: 138px; --y: -42px; --r: 7deg;">
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/55">System 02</p>
-          </article>
-          <article class="star-card star-petal bg-[#7a634d]" data-petal data-index="2" style="--x: 86px; --y: 122px; --r: 11deg;">
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/55">System 03</p>
-          </article>
-          <article class="star-card star-petal bg-[#575752]" data-petal data-index="3" style="--x: -86px; --y: 122px; --r: -9deg;">
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/55">System 04</p>
-          </article>
-          <article class="star-card star-petal bg-[#6e5f67]" data-petal data-index="4" style="--x: -138px; --y: -42px; --r: -13deg;">
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/55">System 05</p>
-          </article>
+      <div class="visual-wrap">
+        <div class="star-stack">
+          <div class="card-petal is-active" data-petal style="--x: 0px; --y: -145px; --r: -4deg; background: #6f5597;"></div>
+          <div class="card-petal" data-petal style="--x: 138px; --y: -44px; --r: 8deg; background: #5e6d79;"></div>
+          <div class="card-petal" data-petal style="--x: 84px; --y: 121px; --r: 10deg; background: #7e674f;"></div>
+          <div class="card-petal" data-petal style="--x: -84px; --y: 121px; --r: -10deg; background: #585857;"></div>
+          <div class="card-petal" data-petal style="--x: -138px; --y: -44px; --r: -8deg; background: #685b63;"></div>
 
-          <article class="star-card star-main p-8" id="starMain">
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-black/60" id="mainTag">System Card 01</p>
-            <h3 class="mt-12 text-4xl font-black text-white" id="mainTitle">Will It Scale?</h3>
-            <p class="mt-4 text-[1.35rem] leading-relaxed text-white/92" id="mainBody">
-              Pipeline redesign and workload isolation for high-throughput systems.
-            </p>
+          <article class="card-main">
+            <small id="cardTag">System Card 01</small>
+            <h3 id="cardTitle">Will It Scale?</h3>
+            <p id="cardBody">Pipeline redesign and workload isolation for high-throughput systems.</p>
           </article>
         </div>
-        <div class="mt-4 flex justify-center gap-3">
-          <button id="prevCard" class="soft-btn rounded-md px-4 py-2 text-sm">Prev</button>
-          <button id="nextCard" class="soft-btn rounded-md px-4 py-2 text-sm">Next</button>
+        <div class="card-controls">
+          <button id="prevCard">Prev</button>
+          <button id="nextCard">Next</button>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="mx-auto max-w-6xl px-6 py-20">
-      <h2 class="text-4xl font-black text-[#f6f2e8]">Experience Highlights</h2>
-      <div class="mt-8 grid gap-4 md:grid-cols-3">
-        <div class="module-card rounded-2xl border border-white/10 p-6">
-          <p class="text-xs uppercase tracking-[0.18em] text-[#bab3a5]">Revenue</p>
-          <p class="mt-3 text-4xl font-black">$<span class="metric" data-target="1.5">0</span>M+</p>
-          <p class="mt-2 text-[#d2ccc0]">LLM-powered auditing platform impact.</p>
-        </div>
-        <div class="module-card rounded-2xl border border-white/10 p-6">
-          <p class="text-xs uppercase tracking-[0.18em] text-[#bab3a5]">Optimization</p>
-          <p class="mt-3 text-4xl font-black">2D -> 2H</p>
-          <p class="mt-2 text-[#d2ccc0]">100K records pipeline acceleration.</p>
-        </div>
-        <div class="module-card rounded-2xl border border-white/10 p-6">
-          <p class="text-xs uppercase tracking-[0.18em] text-[#bab3a5]">Security</p>
-          <p class="mt-3 text-4xl font-black"><span class="metricInt" data-target="150">0</span>+</p>
-          <p class="mt-2 text-[#d2ccc0]">Endpoints under centralized RBAC.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="modules" class="border-y border-white/10 bg-black/25 py-20">
-      <div class="mx-auto max-w-6xl px-6">
-        <h2 class="text-4xl font-black">Interactive Modules</h2>
-        <p class="mt-3 text-slate-300">Click through engineering domains to reveal real outcomes.</p>
-        <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_1.3fr]">
-          <div class="space-y-3">
-            <button class="domain-btn w-full rounded-xl border border-white/15 bg-white/5 p-4 text-left hover:bg-white/10" data-domain="backend">Backend Platform</button>
-            <button class="domain-btn w-full rounded-xl border border-white/15 bg-white/5 p-4 text-left hover:bg-white/10" data-domain="ai">AI Systems</button>
-            <button class="domain-btn w-full rounded-xl border border-white/15 bg-white/5 p-4 text-left hover:bg-white/10" data-domain="cloud">Cloud & DevOps</button>
+    <section id="about" class="container reveal">
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <article class="about-card glass">
+          <p>
+            Software Engineer with 4+ years of experience building production-grade systems using Java, Spring Boot, Python, FastAPI, React, and cloud platforms.
+            I focus on secure APIs, distributed data workflows, AI-powered features, and developer-first platform reliability.
+          </p>
+        </article>
+        <article class="about-card glass">
+          <div class="metric-grid">
+            <div class="metric-item"><strong>$1.5M+</strong>Revenue-impacting product outcomes</div>
+            <div class="metric-item"><strong>150+</strong>Endpoints secured through centralized RBAC</div>
+            <div class="metric-item"><strong>2 Days → 2 Hours</strong>Pipeline runtime optimization at scale</div>
           </div>
-          <article class="rounded-2xl border border-white/15 bg-white/[0.02] p-7">
-            <h3 id="domainTitle" class="text-2xl font-black">Backend Platform</h3>
-            <p id="domainBody" class="mt-4 text-slate-200">Built centralized authorization service in Java + Spring Boot and removed hardcoded permission logic across distributed services.</p>
-            <div class="mt-6 rounded-xl border border-white/10 bg-black/30 p-4">
-              <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Quick Challenge</p>
-              <p class="mt-2">Where should access policy be managed for 150+ endpoints?</p>
-              <div class="mt-3 flex gap-2">
-                <button class="ans rounded border border-white/20 px-3 py-2 text-sm hover:bg-white/10" data-ok="0">Inside each endpoint</button>
-                <button class="ans rounded border border-white/20 px-3 py-2 text-sm hover:bg-white/10" data-ok="1">Centralized auth service</button>
-              </div>
-              <p id="ansText" class="mt-3 text-sm text-[#b8b3a7]">Choose one.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="mx-auto max-w-6xl px-6 py-20">
-      <h2 class="text-4xl font-black">Projects</h2>
-      <div class="mt-8 grid gap-5 md:grid-cols-2">
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-violet-400/60">
-          <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Go · React · pgvector</p>
-          <h3 class="mt-2 text-2xl font-bold">Incident Intelligence Platform</h3>
-          <p class="mt-3 text-slate-300">Ingests distributed logs, retrieves historical outages, and suggests root causes via RAG.</p>
-        </article>
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-cyan-400/60">
-          <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Next.js · Prisma · LLM</p>
-          <h3 class="mt-2 text-2xl font-bold">AI Personal Performance Tracker</h3>
-          <p class="mt-3 text-slate-300">Analyzes goals and journals to generate behavior insights and progress analytics.</p>
         </article>
       </div>
     </section>
 
-    <section id="contact" class="mx-auto max-w-6xl px-6 pb-20">
-      <div class="rounded-2xl border border-white/10 bg-[#151518] p-10 text-center">
-        <h2 class="text-4xl font-black">Open To Opportunities</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-slate-200">Backend, distributed systems, platform engineering, and AI infrastructure roles.</p>
-        <div class="mt-6 flex flex-wrap justify-center gap-4">
-          <a href="mailto:gaganavivekananda3@gmail.com" class="rounded-full bg-[#e7b94c] px-6 py-3 font-semibold text-black">Email Me</a>
-          <a href="resume.pdf" target="_blank" class="rounded-full border border-white/20 px-6 py-3 font-semibold hover:bg-white/10">Download Resume</a>
-        </div>
+    <section id="projects" class="container reveal">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-grid">
+        <article class="project-card glass">
+          <div class="tag">Go · PostgreSQL · pgvector · React</div>
+          <h3>Incident Intelligence Platform</h3>
+          <p>AI-powered incident intelligence system that ingests logs, retrieves similar historical outages, and suggests root causes and mitigation plans in real time.</p>
+        </article>
+        <article class="project-card glass">
+          <div class="tag">Next.js · Prisma · Llama (Ollama)</div>
+          <h3>AI Personal Performance Tracker</h3>
+          <p>Platform that analyzes goals, habits, and journals with local LLMs to generate behavioral insights and progress analytics.</p>
+        </article>
+        <article class="project-card glass">
+          <div class="tag">FastAPI · React · LLMs · Azure</div>
+          <h3>Payroll Auditing Platform</h3>
+          <p>End-to-end auditing platform for federal payroll workflows, automating analysis and reporting to reduce manual effort and improve accuracy.</p>
+        </article>
+        <article class="project-card glass">
+          <div class="tag">Spring Boot · OAuth2 · PostgreSQL</div>
+          <h3>Centralized Authorization Service</h3>
+          <p>Unified RBAC system that removed hardcoded permissions and enforced consistent access control patterns across enterprise services.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="container reveal">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-wrap">
+        <span class="skill-pill">Java</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Spring Boot</span>
+        <span class="skill-pill">FastAPI</span>
+        <span class="skill-pill">React</span>
+        <span class="skill-pill">TypeScript</span>
+        <span class="skill-pill">PostgreSQL</span>
+        <span class="skill-pill">Redis</span>
+        <span class="skill-pill">Kafka</span>
+        <span class="skill-pill">Apache Beam</span>
+        <span class="skill-pill">Docker</span>
+        <span class="skill-pill">Kubernetes</span>
+        <span class="skill-pill">AWS</span>
+        <span class="skill-pill">Azure</span>
+        <span class="skill-pill">LLMs / RAG</span>
+      </div>
+    </section>
+
+    <section id="contact" class="container reveal">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <article class="contact-card glass">
+          <p>Open to backend, distributed systems, and AI platform opportunities.</p>
+          <div class="contact-links">
+            <a href="mailto:gaganavivekananda3@gmail.com">gaganavivekananda3@gmail.com</a>
+            <a href="tel:+16674520363">+1 (667) 452-0363</a>
+            <a href="https://www.linkedin.com/in/gagana-vivekananda" target="_blank">linkedin.com/in/gagana-vivekananda</a>
+            <a href="https://github.com/gagana0066" target="_blank">github.com/gagana0066</a>
+            <a href="https://gagana0066.github.io/" target="_blank">gagana0066.github.io</a>
+          </div>
+        </article>
+        <article class="contact-card glass">
+          <p style="margin-top: 0; color: var(--muted); line-height: 1.7;">
+            Want to discuss an opportunity? Send me an email and I will get back quickly.
+          </p>
+          <div class="cta-row">
+            <a class="btn-primary" href="mailto:gaganavivekananda3@gmail.com">Let's Talk</a>
+            <a class="btn-ghost" href="resume.pdf" target="_blank">Resume</a>
+          </div>
+        </article>
       </div>
     </section>
   </main>
 
-  <script>
-    const systemCards = [
-      {
-        tag: "System Card 01",
-        title: "Will It Scale?",
-        body: "Pipeline redesign and workload isolation for high-throughput systems."
-      },
-      {
-        tag: "System Card 02",
-        title: "Will It Secure?",
-        body: "Centralized RBAC and JWT patterns across 150+ endpoints."
-      },
-      {
-        tag: "System Card 03",
-        title: "Will It Perform?",
-        body: "Indexed PostgreSQL design and caching reduced metadata latency by 35%."
-      },
-      {
-        tag: "System Card 04",
-        title: "Will It Observe?",
-        body: "Grafana dashboards with SLIs/SLOs improved reliability detection by 60%."
-      },
-      {
-        tag: "System Card 05",
-        title: "Will It Ship?",
-        body: "CI/CD automation with GitHub Actions enabled faster, repeatable deployments."
-      }
-    ];
+  <footer class="footer">
+    © <span id="year"></span> Gagana Vivekananda · Built for GitHub Pages
+  </footer>
 
+  <script>
+    // Mobile nav toggle
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileLinks = document.getElementById("mobileLinks");
+    menuBtn.addEventListener("click", () => {
+      mobileLinks.classList.toggle("open");
+    });
+    mobileLinks.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => mobileLinks.classList.remove("open"));
+    });
+
+    // Star stack card content
+    const cardData = [
+      { tag: "System Card 01", title: "Will It Scale?", body: "Pipeline redesign and workload isolation for high-throughput systems." },
+      { tag: "System Card 02", title: "Will It Secure?", body: "Centralized RBAC and JWT patterns across 150+ endpoints." },
+      { tag: "System Card 03", title: "Will It Perform?", body: "Indexed schema and caching reduced metadata lookup latency by 35%." },
+      { tag: "System Card 04", title: "Will It Observe?", body: "SLI/SLO-driven observability improved reliability issue detection by 60%." },
+      { tag: "System Card 05", title: "Will It Ship?", body: "CI/CD automation streamlined deployment workflows across applications." }
+    ];
     const petals = [...document.querySelectorAll("[data-petal]")];
-    const mainTag = document.getElementById("mainTag");
-    const mainTitle = document.getElementById("mainTitle");
-    const mainBody = document.getElementById("mainBody");
-    let active = 0;
-    const renderStar = () => {
-      const current = systemCards[active];
-      mainTag.textContent = current.tag;
-      mainTitle.textContent = current.title;
-      mainBody.textContent = current.body;
-      petals.forEach((petal, idx) => {
-        petal.classList.toggle("active", idx === active);
-      });
+    const cardTag = document.getElementById("cardTag");
+    const cardTitle = document.getElementById("cardTitle");
+    const cardBody = document.getElementById("cardBody");
+    let activeCard = 0;
+    const updateCard = () => {
+      const c = cardData[activeCard];
+      cardTag.textContent = c.tag;
+      cardTitle.textContent = c.title;
+      cardBody.textContent = c.body;
+      petals.forEach((p, idx) => p.classList.toggle("is-active", idx === activeCard));
     };
-    renderStar();
     document.getElementById("nextCard").addEventListener("click", () => {
-      active = (active + 1) % systemCards.length;
-      renderStar();
+      activeCard = (activeCard + 1) % cardData.length;
+      updateCard();
     });
     document.getElementById("prevCard").addEventListener("click", () => {
-      active = (active - 1 + systemCards.length) % systemCards.length;
-      renderStar();
+      activeCard = (activeCard - 1 + cardData.length) % cardData.length;
+      updateCard();
     });
-    petals.forEach((petal, idx) => {
-      petal.addEventListener("click", () => {
-        active = idx;
-        renderStar();
+    petals.forEach((p, idx) => {
+      p.addEventListener("click", () => {
+        activeCard = idx;
+        updateCard();
       });
     });
+    updateCard();
 
-    const domainData = {
-      backend: {
-        title: "Backend Platform",
-        body: "Built centralized authorization service in Java + Spring Boot and removed hardcoded permission logic across distributed services."
-      },
-      ai: {
-        title: "AI Systems",
-        body: "Designed FastAPI + LLM workflow for federal payroll auditing and automated analysis/reporting with measurable business impact."
-      },
-      cloud: {
-        title: "Cloud & DevOps",
-        body: "Shipped CI/CD pipelines using GitHub Actions to Azure App Services and improved release speed/reliability across multiple apps."
-      }
-    };
-    const domainTitle = document.getElementById("domainTitle");
-    const domainBody = document.getElementById("domainBody");
-    document.querySelectorAll(".domain-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const key = btn.dataset.domain;
-        domainTitle.textContent = domainData[key].title;
-        domainBody.textContent = domainData[key].body;
+    // Fade-in on scroll via IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
       });
-    });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-    const ansText = document.getElementById("ansText");
-    document.querySelectorAll(".ans").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const ok = btn.dataset.ok === "1";
-        ansText.textContent = ok
-          ? "Correct. Centralized policy keeps auth consistent and auditable."
-          : "Not ideal. Repeating policy in each endpoint leads to drift.";
-        ansText.className = ok ? "mt-3 text-sm text-emerald-300" : "mt-3 text-sm text-rose-300";
-      });
-    });
-
-    const animate = (selector, decimals = 0) => {
-      document.querySelectorAll(selector).forEach((el) => {
-        const target = Number(el.dataset.target || 0);
-        let value = 0;
-        const step = () => {
-          value += (target - value) * 0.12;
-          if (Math.abs(target - value) < 0.01) value = target;
-          el.textContent = decimals ? value.toFixed(decimals) : Math.round(value).toString();
-          if (value !== target) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
-      });
-    };
-    animate(".metric", 1);
-    animate(".metricInt", 0);
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
