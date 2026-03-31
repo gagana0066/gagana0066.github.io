@@ -129,12 +129,13 @@
     }
 
     .hero {
-      min-height: 86vh;
+      min-height: 74vh;
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
+      grid-template-columns: 1fr;
       align-items: center;
-      gap: 44px;
+      gap: 20px;
       padding: 48px 0 56px;
+      max-width: 760px;
     }
 
     .eyebrow {
@@ -203,101 +204,6 @@
     .btn-ghost:hover {
       transform: translateY(-2px);
       background: rgba(255, 255, 255, 0.08);
-    }
-
-    /* Star stack, but still visually stacked like a deck */
-    .visual-wrap {
-      display: grid;
-      justify-items: center;
-    }
-
-    .star-stack {
-      position: relative;
-      width: 430px;
-      height: 360px;
-    }
-
-    .card-petal,
-    .card-main {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 200px;
-      height: 200px;
-      border-radius: 26px;
-      border: 2px solid var(--border);
-      box-shadow: var(--shadow);
-      clip-path: polygon(50% 0%, 61% 34%, 98% 35%, 69% 57%, 79% 91%, 50% 72%, 21% 91%, 31% 57%, 2% 35%, 39% 34%);
-    }
-
-    .card-petal {
-      opacity: 0.86;
-      cursor: pointer;
-      transition: transform 0.34s ease, opacity 0.24s ease, filter 0.24s ease, border-color 0.24s ease;
-      transform: translate(-50%, -50%) translate(var(--x), var(--y)) rotate(var(--r));
-      z-index: 5;
-    }
-
-    .card-petal.is-active {
-      opacity: 1;
-      filter: brightness(1.06);
-      border-color: rgba(240, 180, 41, 0.65);
-      transform: translate(-50%, -50%) translate(var(--x), var(--y)) rotate(var(--r)) scale(1.04);
-    }
-
-    .card-main {
-      width: 235px;
-      height: 235px;
-      z-index: 20;
-      background: var(--accent-soft);
-      transform: translate(-50%, -50%) rotate(-2deg);
-      padding: 32px 32px 24px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card-main small {
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: rgba(34, 19, 6, 0.65);
-    }
-
-    .card-main h3 {
-      margin: 20px 0 0;
-      font-size: 2.2rem;
-      line-height: 1;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .card-main p {
-      margin-top: 16px;
-      font-size: 0.98rem;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .card-controls {
-      margin-top: 14px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .card-controls button {
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.03);
-      padding: 8px 14px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .card-controls button:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.08);
-      transform: translateY(-1px);
     }
 
     section {
@@ -470,14 +376,9 @@
 
     @media (max-width: 980px) {
       .hero {
-        grid-template-columns: 1fr;
         gap: 30px;
         min-height: auto;
         padding-top: 34px;
-      }
-
-      .visual-wrap {
-        order: -1;
       }
 
       .about-grid,
@@ -496,10 +397,6 @@
         display: inline-flex;
       }
 
-      .star-stack {
-        width: 290px;
-        height: 290px;
-      }
     }
   </style>
 </head>
@@ -540,26 +437,6 @@
         </div>
       </div>
 
-      <div class="visual-wrap">
-        <div class="star-stack">
-          <!-- five star points, stacked in a star shape -->
-          <div class="card-petal is-active" data-petal style="--x: 0px; --y: -115px; --r: -4deg; background: #ae6a4e;"></div>
-          <div class="card-petal" data-petal style="--x: 118px; --y: -30px; --r: 8deg; background: #cc9767;"></div>
-          <div class="card-petal" data-petal style="--x: 72px; --y: 100px; --r: 10deg; background: #c7ad7f;"></div>
-          <div class="card-petal" data-petal style="--x: -72px; --y: 100px; --r: -10deg; background: #a87a4a;"></div>
-          <div class="card-petal" data-petal style="--x: -118px; --y: -30px; --r: -8deg; background: #8b4a1e;"></div>
-
-          <article class="card-main">
-            <small id="cardTag">System Card 01</small>
-            <h3 id="cardTitle">Will It Scale?</h3>
-            <p id="cardBody">Pipeline redesign and workload isolation for high-throughput systems.</p>
-          </article>
-        </div>
-        <div class="card-controls">
-          <button id="prevCard">Prev</button>
-          <button id="nextCard">Next</button>
-        </div>
-      </div>
     </section>
 
     <section id="about" class="container reveal">
@@ -668,42 +545,6 @@
     mobileLinks.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", () => mobileLinks.classList.remove("open"));
     });
-
-    // Star stack card content
-    const cardData = [
-      { tag: "System Card 01", title: "Will It Scale?", body: "Pipeline redesign and workload isolation for high-throughput systems." },
-      { tag: "System Card 02", title: "Will It Secure?", body: "Centralized RBAC and JWT patterns across 150+ endpoints." },
-      { tag: "System Card 03", title: "Will It Perform?", body: "Indexed schema and caching reduced metadata lookup latency by 35%." },
-      { tag: "System Card 04", title: "Will It Observe?", body: "SLI/SLO-driven observability improved reliability issue detection by 60%." },
-      { tag: "System Card 05", title: "Will It Ship?", body: "CI/CD automation streamlined deployment workflows across applications." }
-    ];
-    const petals = [...document.querySelectorAll("[data-petal]")];
-    const cardTag = document.getElementById("cardTag");
-    const cardTitle = document.getElementById("cardTitle");
-    const cardBody = document.getElementById("cardBody");
-    let activeCard = 0;
-    const updateCard = () => {
-      const c = cardData[activeCard];
-      cardTag.textContent = c.tag;
-      cardTitle.textContent = c.title;
-      cardBody.textContent = c.body;
-      petals.forEach((p, idx) => p.classList.toggle("is-active", idx === activeCard));
-    };
-    document.getElementById("nextCard").addEventListener("click", () => {
-      activeCard = (activeCard + 1) % cardData.length;
-      updateCard();
-    });
-    document.getElementById("prevCard").addEventListener("click", () => {
-      activeCard = (activeCard - 1 + cardData.length) % cardData.length;
-      updateCard();
-    });
-    petals.forEach((p, idx) => {
-      p.addEventListener("click", () => {
-        activeCard = idx;
-        updateCard();
-      });
-    });
-    updateCard();
 
     // Fade-in on scroll via IntersectionObserver
     const observer = new IntersectionObserver((entries) => {
