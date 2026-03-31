@@ -3,37 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Gagana Vivekananda, Backend and Distributed Systems Engineer.">
-  <title>Gagana Vivekananda | Distributed Systems Engineer</title>
+  <meta name="description" content="Interactive portfolio of Gagana Vivekananda, Software Engineer focused on distributed systems, AI platforms, and cloud-native backend architecture.">
+  <title>Gagana Vivekananda | Interactive Engineering Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: "#7c3aed"
+            brand: "#8b5cf6",
+            neon: "#22d3ee"
           },
           boxShadow: {
-            glow: "0 0 40px rgba(124, 58, 237, 0.25)"
+            glow: "0 0 45px rgba(34, 211, 238, 0.25)",
+            pulse: "0 0 35px rgba(139, 92, 246, 0.35)"
+          },
+          keyframes: {
+            floaty: {
+              "0%, 100%": { transform: "translateY(0px)" },
+              "50%": { transform: "translateY(-10px)" }
+            },
+            pulseSoft: {
+              "0%, 100%": { opacity: "0.45" },
+              "50%": { opacity: "0.9" }
+            }
+          },
+          animation: {
+            floaty: "floaty 6s ease-in-out infinite",
+            pulseSoft: "pulseSoft 3s ease-in-out infinite"
           }
         }
       }
     };
   </script>
 </head>
-<body class="bg-slate-950 text-slate-100 scroll-smooth antialiased">
-  <div class="absolute inset-0 -z-10 overflow-hidden">
-    <div class="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-brand/30 blur-3xl"></div>
-    <div class="absolute top-72 -left-24 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl"></div>
+<body class="bg-slate-950 text-slate-100 scroll-smooth antialiased selection:bg-brand/40 selection:text-white">
+  <div class="fixed inset-0 -z-20 bg-[radial-gradient(circle_at_20%_10%,rgba(139,92,246,0.2),transparent_40%),radial-gradient(circle_at_80%_10%,rgba(34,211,238,0.2),transparent_35%),radial-gradient(circle_at_50%_80%,rgba(59,130,246,0.15),transparent_35%)]"></div>
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-16 left-[12%] h-48 w-48 animate-floaty rounded-full bg-brand/25 blur-3xl"></div>
+    <div class="absolute top-32 right-[10%] h-56 w-56 animate-pulseSoft rounded-full bg-neon/20 blur-3xl"></div>
+    <div class="absolute bottom-20 left-1/3 h-64 w-64 animate-floaty rounded-full bg-indigo-500/20 blur-3xl"></div>
   </div>
 
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
     <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <a href="#" class="text-sm font-semibold tracking-[0.2em] text-slate-200">GV</a>
-      <div class="flex items-center gap-5 text-sm text-slate-300">
-        <a href="#about" class="transition hover:text-white">About</a>
-        <a href="#experience" class="transition hover:text-white">Experience</a>
+      <a href="#" class="text-sm font-bold tracking-[0.24em] text-white">GV//SYS</a>
+      <div class="hidden items-center gap-5 text-sm text-slate-300 md:flex">
+        <a href="#story" class="transition hover:text-white">Story</a>
+        <a href="#lab" class="transition hover:text-white">System Lab</a>
+        <a href="#timeline" class="transition hover:text-white">Timeline</a>
         <a href="#projects" class="transition hover:text-white">Projects</a>
         <a href="#contact" class="transition hover:text-white">Contact</a>
         <a href="resume.pdf" target="_blank" class="rounded-md border border-white/20 px-3 py-1.5 transition hover:border-white hover:bg-white/10">
@@ -44,32 +62,35 @@
   </header>
 
   <main>
-    <section class="border-b border-emerald-400/30 bg-emerald-500/5">
-      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-2 text-xs text-emerald-200 md:text-sm">
-        <p class="font-medium tracking-wide">
-          Open to backend & distributed systems roles · Full-time / Hybrid / Remote
+    <section class="border-b border-cyan-300/30 bg-cyan-500/10">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-2 text-xs text-cyan-100 md:text-sm">
+        <p class="font-semibold tracking-wide">
+          OPEN TO WORK: Senior Software Engineer · Distributed Systems · Backend Platform · AI Infrastructure
         </p>
-        <a href="mailto:gaganavivekananda3@gmail.com" class="whitespace-nowrap rounded-full border border-emerald-300/60 bg-emerald-500/10 px-3 py-1 font-semibold text-emerald-100 transition hover:bg-emerald-400/30">
+        <a href="mailto:gaganavivekananda3@gmail.com" class="whitespace-nowrap rounded-full border border-cyan-200/70 bg-cyan-400/20 px-3 py-1 font-semibold text-cyan-50 transition hover:bg-cyan-300/40">
           Contact me
         </a>
       </div>
     </section>
 
-    <section class="mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-center px-6 py-16 md:py-20">
-      <p class="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-brand">Backend & Distributed Systems Engineer</p>
-      <h1 class="max-w-4xl text-5xl font-bold leading-tight text-white md:text-7xl">
+    <section class="mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-center px-6 py-16 md:py-20">
+      <p class="mb-4 text-sm font-medium uppercase tracking-[0.24em] text-neon">Software Engineer · 4+ Years · Cloud Native Systems</p>
+      <h1 class="max-w-5xl text-5xl font-black leading-tight text-white md:text-7xl">
         Gagana Vivekananda
       </h1>
-      <p class="mt-8 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">
-        I design and ship reliable backend platforms that process high-throughput workloads, secure critical APIs, and power cloud-native products with measurable business impact.
+      <p class="mt-8 max-w-4xl text-lg leading-relaxed text-slate-300 md:text-xl">
+        I build high-scale platforms that connect APIs, AI, and distributed data pipelines. My systems have generated <span class="font-semibold text-white">$1.5M+ impact</span>, cut processing from <span class="font-semibold text-white">2 days to 2 hours</span>, and improved cost, latency, and reliability for production workloads.
       </p>
 
       <div class="mt-10 flex flex-wrap gap-4">
         <a href="resume.pdf" target="_blank" class="rounded-lg bg-white px-6 py-3 font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:shadow-lg">
           Download Resume
         </a>
-        <a href="#projects" class="rounded-lg border border-white/20 px-6 py-3 font-semibold transition hover:border-white hover:bg-white/10">
-          View Projects
+        <a href="#lab" class="rounded-lg border border-white/20 px-6 py-3 font-semibold transition hover:border-white hover:bg-white/10">
+          Explore Interactive Lab
+        </a>
+        <a href="#projects" class="rounded-lg border border-brand/40 bg-brand/20 px-6 py-3 font-semibold transition hover:bg-brand/30">
+          View Signature Projects
         </a>
       </div>
     </section>
@@ -77,149 +98,236 @@
     <section class="mx-auto max-w-6xl px-6 pb-20">
       <div class="grid gap-6 md:grid-cols-3">
         <article class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-glow">
-          <p class="text-3xl font-bold text-white">2 Days to 2 Hours</p>
-          <p class="mt-3 text-slate-300">Optimized Apache Beam pipelines at SLB and accelerated 100K+ record processing workflows.</p>
+          <p class="text-sm uppercase tracking-[0.14em] text-slate-400">Revenue Impact</p>
+          <p class="mt-2 text-4xl font-black text-white">$<span class="countup" data-target="1.5">0</span>M+</p>
+          <p class="mt-3 text-slate-300">Built an auditing platform with FastAPI + React + LLM workflows that unlocked measurable business value.</p>
         </article>
         <article class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-          <p class="text-3xl font-bold text-white">150+ APIs Secured</p>
-          <p class="mt-3 text-slate-300">Architected RBAC with Spring Boot and OAuth2 for enterprise-grade access control.</p>
+          <p class="text-sm uppercase tracking-[0.14em] text-slate-400">Latency Reduction</p>
+          <p class="mt-2 text-4xl font-black text-white"><span class="countup-int" data-target="35">0</span>%</p>
+          <p class="mt-3 text-slate-300">Engineered indexed PostgreSQL schema, auth caching, and secure access patterns to speed critical lookups.</p>
         </article>
         <article class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-          <p class="text-3xl font-bold text-white">$1.7K/Month Saved</p>
-          <p class="mt-3 text-slate-300">Reduced Azure spend through platform redesign and improved resource efficiency.</p>
+          <p class="text-sm uppercase tracking-[0.14em] text-slate-400">Scale Outcome</p>
+          <p class="mt-2 text-4xl font-black text-white">2D <span class="text-brand">→</span> 2H</p>
+          <p class="mt-3 text-slate-300">Re-architected data processing at SLB and accelerated 100K-record workloads with resilient pipeline design.</p>
         </article>
       </div>
     </section>
 
-    <section id="about" class="border-y border-white/10 bg-slate-900/50 py-20">
+    <section id="story" class="border-y border-white/10 bg-slate-900/50 py-20">
       <div class="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1.2fr_1fr]">
         <div>
-          <h2 class="text-3xl font-bold text-white md:text-4xl">Who I Am</h2>
+          <h2 class="text-3xl font-bold text-white md:text-4xl">Engineering Story</h2>
           <p class="mt-6 text-lg leading-relaxed text-slate-300">
-            I specialize in distributed backend systems that scale with confidence. From secure RBAC architectures to data-intensive pipelines, my focus is engineering rigor, reliability, and outcomes you can measure.
+            I specialize in designing platforms where distributed systems meet product outcomes. From healthcare and payroll systems to observability-heavy data pipelines, I ship production software with enterprise-level reliability and practical business impact.
+          </p>
+          <p class="mt-4 text-lg leading-relaxed text-slate-300">
+            My toolkit spans Java/Spring, Python/FastAPI, PostgreSQL, Kubernetes, Azure/AWS, and modern LLM workflows for AI-native applications.
           </p>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-          <h3 class="text-lg font-semibold text-white">Core Capabilities</h3>
+          <h3 class="text-lg font-semibold text-white">Core Capability Matrix</h3>
           <ul class="mt-4 space-y-3 text-slate-300">
             <li>High-throughput backend architecture</li>
             <li>API security and identity design</li>
-            <li>Data pipelines and stream processing</li>
+            <li>Data pipelines and vector search systems</li>
             <li>Cloud cost and performance optimization</li>
+            <li>LLM integration and RAG-based workflows</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="mx-auto max-w-6xl px-6 py-20">
-      <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-        <div class="max-w-md">
-          <h2 class="text-3xl font-bold text-white md:text-4xl">Experience Snapshot</h2>
-          <p class="mt-4 text-slate-300">
-            A quick summary of the most relevant experience for backend and distributed systems roles.
-          </p>
+    <section id="lab" class="mx-auto max-w-6xl px-6 py-20">
+      <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/90 to-slate-950 p-8 shadow-pulse md:p-10">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <h2 class="text-3xl font-bold text-white md:text-4xl">System Lab: Interactive Architecture</h2>
+          <p class="text-sm text-slate-300">Click a node to inspect what I built.</p>
         </div>
-        <ol class="relative mt-4 space-y-8 border-l border-white/10 pl-6 text-sm md:text-base">
-          <li class="relative">
-            <span class="absolute -left-3 mt-1 h-2.5 w-2.5 rounded-full bg-brand"></span>
-            <div class="flex flex-wrap items-baseline justify-between gap-2">
-              <p class="font-semibold text-white">Backend / Distributed Systems Engineer</p>
-              <p class="text-xs uppercase tracking-wide text-slate-400">SLB · 2023 – Present</p>
+        <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_1.3fr]">
+          <div class="grid gap-3">
+            <button class="arch-node rounded-xl border border-white/15 bg-white/[0.03] p-4 text-left transition hover:border-neon/60 hover:bg-neon/10" data-title="API + Security Layer" data-body="Built centralized RBAC in Spring Boot across 150+ endpoints, with JWT and row-level security patterns to enforce consistent authorization.">API + Security Layer</button>
+            <button class="arch-node rounded-xl border border-white/15 bg-white/[0.03] p-4 text-left transition hover:border-neon/60 hover:bg-neon/10" data-title="Data & Pipeline Core" data-body="Refactored Apache Beam workloads by isolating execution setup from business logic, driving a runtime drop from 2 days to 2 hours for 100K records.">Data & Pipeline Core</button>
+            <button class="arch-node rounded-xl border border-white/15 bg-white/[0.03] p-4 text-left transition hover:border-neon/60 hover:bg-neon/10" data-title="AI Product Module" data-body="Designed an LLM-powered auditing platform to analyze payroll Excel workflows and automate reporting, generating over $1M in revenue impact.">AI Product Module</button>
+            <button class="arch-node rounded-xl border border-white/15 bg-white/[0.03] p-4 text-left transition hover:border-neon/60 hover:bg-neon/10" data-title="Observability + Ops" data-body="Built Grafana observability dashboards exposing SLIs, SLOs, and error budgets; implemented CI/CD with GitHub Actions to Azure for multiple applications.">Observability + Ops</button>
+          </div>
+          <div class="rounded-2xl border border-neon/30 bg-slate-900/70 p-6">
+            <h3 id="arch-title" class="text-2xl font-bold text-white">API + Security Layer</h3>
+            <p id="arch-body" class="mt-4 leading-relaxed text-slate-300">Built centralized RBAC in Spring Boot across 150+ endpoints, with JWT and row-level security patterns to enforce consistent authorization.</p>
+            <div class="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+              <p class="text-xs uppercase tracking-[0.14em] text-slate-400">Challenge Prompt</p>
+              <p class="mt-2 text-slate-200">If your service has inconsistent permissions, where should policy live: in each endpoint, or in a centralized auth service?</p>
+              <div class="mt-3 flex gap-2">
+                <button class="quiz-btn rounded-lg border border-white/15 px-3 py-2 text-sm hover:bg-white/10" data-correct="false">Each endpoint</button>
+                <button class="quiz-btn rounded-lg border border-white/15 px-3 py-2 text-sm hover:bg-white/10" data-correct="true">Centralized service</button>
+              </div>
+              <p id="quiz-result" class="mt-3 text-sm text-slate-300">Select an option.</p>
             </div>
-            <p class="mt-2 text-slate-300">
-              Optimized Apache Beam workloads and backend services, cutting pipeline runtime from 2 days to 2 hours while maintaining reliability at scale.
-            </p>
-          </li>
-          <li class="relative">
-            <span class="absolute -left-3 mt-1 h-2.5 w-2.5 rounded-full bg-brand/60"></span>
-            <div class="flex flex-wrap items-baseline justify-between gap-2">
-              <p class="font-semibold text-white">Backend Engineer</p>
-              <p class="text-xs uppercase tracking-wide text-slate-400">Previous Role · 2021 – 2023</p>
-            </div>
-            <p class="mt-2 text-slate-300">
-              Led API and RBAC design for 150+ internal and external services, improving security posture and developer productivity.
-            </p>
-          </li>
-          <li class="relative">
-            <span class="absolute -left-3 mt-1 h-2.5 w-2.5 rounded-full bg-brand/40"></span>
-            <div class="flex flex-wrap items-baseline justify-between gap-2">
-              <p class="font-semibold text-white">Cloud & Platform Internships / Projects</p>
-              <p class="text-xs uppercase tracking-wide text-slate-400">Before 2021</p>
-            </div>
-            <p class="mt-2 text-slate-300">
-              Delivered cloud-native proof-of-concepts, optimized infrastructure costs, and built data-oriented side projects similar to ShareCart.
-            </p>
-          </li>
-        </ol>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="mx-auto max-w-6xl px-6 py-20">
+    <section id="timeline" class="mx-auto max-w-6xl px-6 py-20">
+      <h2 class="text-center text-3xl font-bold text-white md:text-4xl">Career Timeline</h2>
+      <ol class="relative mx-auto mt-10 max-w-4xl space-y-8 border-l border-white/10 pl-6 text-sm md:text-base">
+        <li class="relative">
+          <span class="absolute -left-3 mt-1 h-2.5 w-2.5 rounded-full bg-neon"></span>
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <p class="font-semibold text-white">Full Stack Developer · The W2 Group, LLC</p>
+            <p class="text-xs uppercase tracking-wide text-slate-400">Feb 2026 - Present</p>
+          </div>
+          <p class="mt-2 text-slate-300">Built LLM-powered payroll auditing platform with FastAPI + React; automated manual analysis and generated $1M revenue.</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-3 mt-1 h-2.5 w-2.5 rounded-full bg-brand"></span>
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <p class="font-semibold text-white">Software Engineer · Trulogik</p>
+            <p class="text-xs uppercase tracking-wide text-slate-400">May 2025 - Jan 2026</p>
+          </div>
+          <p class="mt-2 text-slate-300">Created centralized RBAC and cloud-native backend interoperability patterns for healthcare insurance claims.</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-3 mt-1 h-2.5 w-2.5 rounded-full bg-violet-400"></span>
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <p class="font-semibold text-white">Full Stack Software Engineer · SLB</p>
+            <p class="text-xs uppercase tracking-wide text-slate-400">Jul 2022 - Aug 2024</p>
+          </div>
+          <p class="mt-2 text-slate-300">Reduced data processing from 2 days to 2 hours; saved $1.7K/month in Azure costs; built observability dashboards for reliability.</p>
+        </li>
+        <li class="relative">
+          <span class="absolute -left-3 mt-1 h-2.5 w-2.5 rounded-full bg-blue-400"></span>
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <p class="font-semibold text-white">Cognizant + Capgemini</p>
+            <p class="text-xs uppercase tracking-wide text-slate-400">2021 - 2022</p>
+          </div>
+          <p class="mt-2 text-slate-300">Built patient management modules, CI/CD standardization, and reliability monitoring with 99.9% uptime outcomes.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="border-y border-white/10 bg-slate-900/50 py-20">
       <h2 class="text-center text-3xl font-bold text-white md:text-4xl">Technical Stack</h2>
       <div class="mx-auto mt-10 flex max-w-5xl flex-wrap justify-center gap-3 text-sm md:text-base">
         <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Java</span>
         <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Python</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Go</span>
         <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Spring Boot</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">FastAPI</span>
         <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Kafka</span>
         <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Apache Beam</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">pgvector</span>
         <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">PostgreSQL</span>
         <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Redis</span>
         <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Docker</span>
         <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Kubernetes</span>
         <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">AWS</span>
         <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Azure</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">React</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">TypeScript</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">LLMs + RAG</span>
       </div>
     </section>
 
     <section id="projects" class="border-y border-white/10 bg-slate-900/50 py-20">
       <div class="mx-auto max-w-6xl px-6">
-        <h2 class="text-center text-3xl font-bold text-white md:text-4xl">Featured Project</h2>
-
-        <article class="mx-auto mt-12 max-w-4xl rounded-2xl border border-white/10 bg-white/[0.03] p-8 md:p-10">
-          <div class="flex flex-wrap items-center gap-3">
-            <h3 class="text-2xl font-bold text-white">ShareCart - AI Recommendation Engine</h3>
-            <span class="rounded-full border border-brand/40 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-violet-200">
-              Case Study
-            </span>
-          </div>
-          <p class="mt-4 leading-relaxed text-slate-300">
-            Built with Spring Boot, AWS EC2, and NLP models to optimize recommendations and delivery logistics. The system improved delivery efficiency by 30% and increased user satisfaction by 20%.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
-            <span class="rounded-full border border-white/10 px-3 py-1">Spring Boot</span>
-            <span class="rounded-full border border-white/10 px-3 py-1">AWS EC2</span>
-            <span class="rounded-full border border-white/10 px-3 py-1">NLP</span>
-            <span class="rounded-full border border-white/10 px-3 py-1">PostgreSQL</span>
-          </div>
-          <video class="mt-6 w-full rounded-xl border border-white/10" controls>
-            <source src="sharecart-demo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="mt-6 flex flex-wrap gap-4">
-            <a href="resume.pdf" target="_blank" class="text-sm font-semibold text-brand underline-offset-4 hover:underline">
-              Full details in resume
-            </a>
-          </div>
-        </article>
+        <h2 class="text-center text-3xl font-bold text-white md:text-4xl">Signature Projects</h2>
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
+          <article class="group rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition hover:-translate-y-1 hover:border-neon/50 hover:bg-neon/10">
+            <p class="text-xs uppercase tracking-[0.14em] text-slate-400">AI + Reliability</p>
+            <h3 class="mt-2 text-2xl font-bold text-white">Incident Intelligence Platform</h3>
+            <p class="mt-3 text-slate-300">Go + PostgreSQL + pgvector + React platform that ingests logs, retrieves similar incidents, and suggests root causes with RAG.</p>
+            <a href="#" class="mt-5 inline-block text-sm font-semibold text-neon underline-offset-4 hover:underline">Add GitHub URL</a>
+          </article>
+          <article class="group rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition hover:-translate-y-1 hover:border-brand/50 hover:bg-brand/10">
+            <p class="text-xs uppercase tracking-[0.14em] text-slate-400">AI Product</p>
+            <h3 class="mt-2 text-2xl font-bold text-white">AI Personal Performance Tracker</h3>
+            <p class="mt-3 text-slate-300">Next.js + Prisma + Llama/Ollama app that analyzes journals and goals to generate behavior insights and progress analytics.</p>
+            <a href="#" class="mt-5 inline-block text-sm font-semibold text-brand underline-offset-4 hover:underline">Add GitHub URL</a>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="contact" class="mx-auto max-w-6xl px-6 py-20">
       <div class="rounded-2xl border border-white/10 bg-gradient-to-r from-violet-600/20 to-cyan-500/20 p-10 text-center">
-        <h2 class="text-3xl font-bold text-white md:text-4xl">Let's Build Something Ambitious</h2>
+        <h2 class="text-3xl font-bold text-white md:text-4xl">Let’s Build Something Ambitious</h2>
         <p class="mx-auto mt-4 max-w-2xl text-slate-200">
-          Open to backend and distributed systems opportunities where performance, reliability, and ownership are critical.
+          Open to software engineering roles focused on backend systems, platform engineering, distributed architectures, and AI-powered products.
         </p>
         <div class="mt-8 flex flex-col items-center gap-3 text-slate-100">
           <a href="mailto:gaganavivekananda3@gmail.com" class="transition hover:text-white">
             gaganavivekananda3@gmail.com
           </a>
+          <a href="tel:+16674520363" class="transition hover:text-white">
+            +1 (667) 452-0363
+          </a>
           <a href="https://www.linkedin.com/in/gagana-vivekananda" target="_blank" class="transition hover:text-white">
             linkedin.com/in/gagana-vivekananda
+          </a>
+          <a href="#" class="transition hover:text-white">
+            Add GitHub Profile URL
+          </a>
+        </div>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a href="resume.pdf" target="_blank" class="rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:shadow-lg">
+            Download Resume
+          </a>
+          <a href="mailto:gaganavivekananda3@gmail.com" class="rounded-lg border border-white/20 px-5 py-2.5 text-sm font-semibold transition hover:bg-white/10">
+            Schedule Intro Call
           </a>
         </div>
       </div>
     </section>
   </main>
+
+  <script>
+    const archNodes = document.querySelectorAll(".arch-node");
+    const archTitle = document.getElementById("arch-title");
+    const archBody = document.getElementById("arch-body");
+    archNodes.forEach((node) => {
+      node.addEventListener("click", () => {
+        archTitle.textContent = node.dataset.title;
+        archBody.textContent = node.dataset.body;
+        archNodes.forEach((n) => n.classList.remove("ring-2", "ring-neon/70"));
+        node.classList.add("ring-2", "ring-neon/70");
+      });
+    });
+
+    const quizBtns = document.querySelectorAll(".quiz-btn");
+    const quizResult = document.getElementById("quiz-result");
+    quizBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const correct = btn.dataset.correct === "true";
+        quizResult.textContent = correct
+          ? "Correct. Centralized policy gives consistency, auditability, and faster change management."
+          : "Not ideal at scale. Duplicated policy across endpoints causes drift and security risks.";
+        quizResult.className = correct
+          ? "mt-3 text-sm text-emerald-300"
+          : "mt-3 text-sm text-rose-300";
+      });
+    });
+
+    const animateCount = (selector, decimals = 0) => {
+      const items = document.querySelectorAll(selector);
+      items.forEach((item) => {
+        const target = Number(item.dataset.target || 0);
+        const duration = 1400;
+        const start = performance.now();
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const value = target * eased;
+          item.textContent = decimals ? value.toFixed(decimals) : Math.round(value).toString();
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    };
+
+    animateCount(".countup", 1);
+    animateCount(".countup-int", 0);
+  </script>
 </body>
 </html>
