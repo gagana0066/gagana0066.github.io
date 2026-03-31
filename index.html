@@ -2,122 +2,224 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Gagana Vivekananda, Backend and Distributed Systems Engineer.">
   <title>Gagana Vivekananda | Distributed Systems Engineer</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: "#7c3aed"
+          },
+          boxShadow: {
+            glow: "0 0 40px rgba(124, 58, 237, 0.25)"
+          }
+        }
+      }
+    };
+  </script>
 </head>
-<body class="bg-black text-white scroll-smooth">
-
-<!-- HERO -->
-<section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
-  <h1 class="text-6xl font-bold tracking-tight">Gagana Vivekananda</h1>
-  <p class="mt-4 text-2xl text-gray-400">
-    Backend & Distributed Systems Engineer
-  </p>
-  <p class="mt-6 max-w-2xl text-gray-400">
-    I build scalable, production-grade systems handling high throughput,
-    secure APIs, distributed workflows and cloud-native deployments.
-  </p>
-
-  <div class="mt-8 flex gap-6">
-    <a href="resume.pdf" target="_blank"
-       class="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:scale-105 transition">
-       Download Resume
-    </a>
-    <a href="#projects"
-       class="px-6 py-3 border border-gray-600 rounded-lg hover:bg-gray-900 transition">
-       View Projects
-    </a>
+<body class="bg-slate-950 text-slate-100 scroll-smooth antialiased">
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-brand/30 blur-3xl"></div>
+    <div class="absolute top-72 -left-24 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl"></div>
   </div>
-</section>
 
-<!-- IMPACT -->
-<section class="py-20 bg-gray-950 text-center">
-  <h2 class="text-4xl font-bold mb-12">Impact Highlights</h2>
-  <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="#" class="text-sm font-semibold tracking-[0.2em] text-slate-200">GV</a>
+      <div class="flex items-center gap-5 text-sm text-slate-300">
+        <a href="#about" class="transition hover:text-white">About</a>
+        <a href="#experience" class="transition hover:text-white">Experience</a>
+        <a href="#projects" class="transition hover:text-white">Projects</a>
+        <a href="#contact" class="transition hover:text-white">Contact</a>
+        <a href="resume.pdf" target="_blank" class="rounded-md border border-white/20 px-3 py-1.5 transition hover:border-white hover:bg-white/10">
+          Resume
+        </a>
+      </div>
+    </nav>
+  </header>
 
-    <div>
-      <h3 class="text-5xl font-bold">2 Days → 2 Hours</h3>
-      <p class="text-gray-400 mt-3">
-        Optimized Apache Beam pipelines at SLB for 100K+ records.
+  <main>
+    <section class="border-b border-emerald-400/30 bg-emerald-500/5">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-2 text-xs text-emerald-200 md:text-sm">
+        <p class="font-medium tracking-wide">
+          Open to backend & distributed systems roles · Full-time / Hybrid / Remote
+        </p>
+        <a href="mailto:gaganavivekananda3@gmail.com" class="whitespace-nowrap rounded-full border border-emerald-300/60 bg-emerald-500/10 px-3 py-1 font-semibold text-emerald-100 transition hover:bg-emerald-400/30">
+          Contact me
+        </a>
+      </div>
+    </section>
+
+    <section class="mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-center px-6 py-16 md:py-20">
+      <p class="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-brand">Backend & Distributed Systems Engineer</p>
+      <h1 class="max-w-4xl text-5xl font-bold leading-tight text-white md:text-7xl">
+        Gagana Vivekananda
+      </h1>
+      <p class="mt-8 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">
+        I design and ship reliable backend platforms that process high-throughput workloads, secure critical APIs, and power cloud-native products with measurable business impact.
       </p>
-    </div>
 
-    <div>
-      <h3 class="text-5xl font-bold">150+ APIs Secured</h3>
-      <p class="text-gray-400 mt-3">
-        Designed RBAC system using Spring Boot & OAuth2.
-      </p>
-    </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="resume.pdf" target="_blank" class="rounded-lg bg-white px-6 py-3 font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:shadow-lg">
+          Download Resume
+        </a>
+        <a href="#projects" class="rounded-lg border border-white/20 px-6 py-3 font-semibold transition hover:border-white hover:bg-white/10">
+          View Projects
+        </a>
+      </div>
+    </section>
 
-    <div>
-      <h3 class="text-5xl font-bold">$1.7K/mo Saved</h3>
-      <p class="text-gray-400 mt-3">
-        Reduced Azure resource usage via architecture redesign.
-      </p>
-    </div>
+    <section class="mx-auto max-w-6xl px-6 pb-20">
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-glow">
+          <p class="text-3xl font-bold text-white">2 Days to 2 Hours</p>
+          <p class="mt-3 text-slate-300">Optimized Apache Beam pipelines at SLB and accelerated 100K+ record processing workflows.</p>
+        </article>
+        <article class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <p class="text-3xl font-bold text-white">150+ APIs Secured</p>
+          <p class="mt-3 text-slate-300">Architected RBAC with Spring Boot and OAuth2 for enterprise-grade access control.</p>
+        </article>
+        <article class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <p class="text-3xl font-bold text-white">$1.7K/Month Saved</p>
+          <p class="mt-3 text-slate-300">Reduced Azure spend through platform redesign and improved resource efficiency.</p>
+        </article>
+      </div>
+    </section>
 
-  </div>
-</section>
+    <section id="about" class="border-y border-white/10 bg-slate-900/50 py-20">
+      <div class="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1.2fr_1fr]">
+        <div>
+          <h2 class="text-3xl font-bold text-white md:text-4xl">Who I Am</h2>
+          <p class="mt-6 text-lg leading-relaxed text-slate-300">
+            I specialize in distributed backend systems that scale with confidence. From secure RBAC architectures to data-intensive pipelines, my focus is engineering rigor, reliability, and outcomes you can measure.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <h3 class="text-lg font-semibold text-white">Core Capabilities</h3>
+          <ul class="mt-4 space-y-3 text-slate-300">
+            <li>High-throughput backend architecture</li>
+            <li>API security and identity design</li>
+            <li>Data pipelines and stream processing</li>
+            <li>Cloud cost and performance optimization</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<!-- STORY -->
-<section class="py-20 max-w-4xl mx-auto px-6">
-  <h2 class="text-4xl font-bold mb-6">Who I Am</h2>
-  <p class="text-gray-400 leading-relaxed text-lg">
-    I specialize in building distributed backend systems that scale.
-    From designing secure RBAC architectures to optimizing large-scale
-    data pipelines, I focus on measurable impact.
-    I thrive in environments that demand performance, ownership,
-    and engineering rigor.
-  </p>
-</section>
+    <section id="experience" class="mx-auto max-w-6xl px-6 py-20">
+      <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+        <div class="max-w-md">
+          <h2 class="text-3xl font-bold text-white md:text-4xl">Experience Snapshot</h2>
+          <p class="mt-4 text-slate-300">
+            A quick summary of the most relevant experience for backend and distributed systems roles.
+          </p>
+        </div>
+        <ol class="relative mt-4 space-y-8 border-l border-white/10 pl-6 text-sm md:text-base">
+          <li class="relative">
+            <span class="absolute -left-3 mt-1 h-2.5 w-2.5 rounded-full bg-brand"></span>
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <p class="font-semibold text-white">Backend / Distributed Systems Engineer</p>
+              <p class="text-xs uppercase tracking-wide text-slate-400">SLB · 2023 – Present</p>
+            </div>
+            <p class="mt-2 text-slate-300">
+              Optimized Apache Beam workloads and backend services, cutting pipeline runtime from 2 days to 2 hours while maintaining reliability at scale.
+            </p>
+          </li>
+          <li class="relative">
+            <span class="absolute -left-3 mt-1 h-2.5 w-2.5 rounded-full bg-brand/60"></span>
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <p class="font-semibold text-white">Backend Engineer</p>
+              <p class="text-xs uppercase tracking-wide text-slate-400">Previous Role · 2021 – 2023</p>
+            </div>
+            <p class="mt-2 text-slate-300">
+              Led API and RBAC design for 150+ internal and external services, improving security posture and developer productivity.
+            </p>
+          </li>
+          <li class="relative">
+            <span class="absolute -left-3 mt-1 h-2.5 w-2.5 rounded-full bg-brand/40"></span>
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <p class="font-semibold text-white">Cloud & Platform Internships / Projects</p>
+              <p class="text-xs uppercase tracking-wide text-slate-400">Before 2021</p>
+            </div>
+            <p class="mt-2 text-slate-300">
+              Delivered cloud-native proof-of-concepts, optimized infrastructure costs, and built data-oriented side projects similar to ShareCart.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-<!-- SKILLS -->
-<section class="py-20 bg-gray-950 px-6">
-  <h2 class="text-4xl font-bold text-center mb-12">Technical Stack</h2>
-  <div class="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto text-lg">
-    <span class="px-5 py-2 bg-gray-800 rounded-lg">Java</span>
-    <span class="px-5 py-2 bg-gray-800 rounded-lg">Python</span>
-    <span class="px-5 py-2 bg-gray-800 rounded-lg">Spring Boot</span>
-    <span class="px-5 py-2 bg-gray-800 rounded-lg">Kafka</span>
-    <span class="px-5 py-2 bg-gray-800 rounded-lg">Apache Beam</span>
-    <span class="px-5 py-2 bg-gray-800 rounded-lg">PostgreSQL</span>
-    <span class="px-5 py-2 bg-gray-800 rounded-lg">Redis</span>
-    <span class="px-5 py-2 bg-gray-800 rounded-lg">Docker</span>
-    <span class="px-5 py-2 bg-gray-800 rounded-lg">Kubernetes</span>
-    <span class="px-5 py-2 bg-gray-800 rounded-lg">AWS</span>
-    <span class="px-5 py-2 bg-gray-800 rounded-lg">Azure</span>
-  </div>
-</section>
+    <section class="mx-auto max-w-6xl px-6 py-20">
+      <h2 class="text-center text-3xl font-bold text-white md:text-4xl">Technical Stack</h2>
+      <div class="mx-auto mt-10 flex max-w-5xl flex-wrap justify-center gap-3 text-sm md:text-base">
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Java</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Python</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Spring Boot</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Kafka</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Apache Beam</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">PostgreSQL</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Redis</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Docker</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Kubernetes</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">AWS</span>
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2">Azure</span>
+      </div>
+    </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="py-20 px-6 max-w-6xl mx-auto">
-  <h2 class="text-4xl font-bold mb-12 text-center">Featured Projects</h2>
+    <section id="projects" class="border-y border-white/10 bg-slate-900/50 py-20">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-center text-3xl font-bold text-white md:text-4xl">Featured Project</h2>
 
-  <div class="bg-gray-900 p-8 rounded-xl mb-12">
-    <h3 class="text-2xl font-bold">ShareCart – AI Recommendation Engine</h3>
-    <p class="text-gray-400 mt-3">
-      Spring Boot + AWS EC2 + NLP Models.
-      Improved delivery optimization by 30% and boosted user satisfaction by 20%.
-    </p>
+        <article class="mx-auto mt-12 max-w-4xl rounded-2xl border border-white/10 bg-white/[0.03] p-8 md:p-10">
+          <div class="flex flex-wrap items-center gap-3">
+            <h3 class="text-2xl font-bold text-white">ShareCart - AI Recommendation Engine</h3>
+            <span class="rounded-full border border-brand/40 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-violet-200">
+              Case Study
+            </span>
+          </div>
+          <p class="mt-4 leading-relaxed text-slate-300">
+            Built with Spring Boot, AWS EC2, and NLP models to optimize recommendations and delivery logistics. The system improved delivery efficiency by 30% and increased user satisfaction by 20%.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
+            <span class="rounded-full border border-white/10 px-3 py-1">Spring Boot</span>
+            <span class="rounded-full border border-white/10 px-3 py-1">AWS EC2</span>
+            <span class="rounded-full border border-white/10 px-3 py-1">NLP</span>
+            <span class="rounded-full border border-white/10 px-3 py-1">PostgreSQL</span>
+          </div>
+          <video class="mt-6 w-full rounded-xl border border-white/10" controls>
+            <source src="sharecart-demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="mt-6 flex flex-wrap gap-4">
+            <a href="resume.pdf" target="_blank" class="text-sm font-semibold text-brand underline-offset-4 hover:underline">
+              Full details in resume
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-    <!-- Upload demo.mp4 -->
-    <video class="mt-6 rounded-lg" controls>
-      <source src="sharecart-demo.mp4" type="video/mp4">
-    </video>
-  </div>
-
-</section>
-
-<!-- CONTACT -->
-<section class="py-20 bg-black text-center">
-  <h2 class="text-4xl font-bold mb-6">Let’s Build Something Big</h2>
-  <p class="text-gray-400">
-    gaganavivekananda3@gmail.com
-  </p>
-  <p class="text-gray-400 mt-2">
-    linkedin.com/in/gagana-vivekananda
-  </p>
-</section>
-
+    <section id="contact" class="mx-auto max-w-6xl px-6 py-20">
+      <div class="rounded-2xl border border-white/10 bg-gradient-to-r from-violet-600/20 to-cyan-500/20 p-10 text-center">
+        <h2 class="text-3xl font-bold text-white md:text-4xl">Let's Build Something Ambitious</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-slate-200">
+          Open to backend and distributed systems opportunities where performance, reliability, and ownership are critical.
+        </p>
+        <div class="mt-8 flex flex-col items-center gap-3 text-slate-100">
+          <a href="mailto:gaganavivekananda3@gmail.com" class="transition hover:text-white">
+            gaganavivekananda3@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/gagana-vivekananda" target="_blank" class="transition hover:text-white">
+            linkedin.com/in/gagana-vivekananda
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
